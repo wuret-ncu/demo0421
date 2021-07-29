@@ -1,22 +1,28 @@
 import React from 'react';
-import './list.css';
-function Data(props){
-    return(
-        <div className="list">
-            <input type="checkbox" />
-            <span>{props.name}</span>
-            <button type="button">edit</button>
-            <button type="button">delete</button>
-        </div>
-    )   
-}
-function Todolist(props){
-    const datalist = props.name.map(value =>
-        <Data key={value} name ={value} />)
+import Item from './item';
+
+//list
+const List = ({listData,deleteData,changedata}) =>{
+    //console.log ('changedata',changedata)   
     return(
         <div>
-            {datalist}    
+            {
+                listData.map((item) =>{
+                    const {note,id,completed} = item
+                    return (
+                    <Item 
+                    key={id}
+                    id={id}
+                    note={note} 
+                    completed={completed}
+                    deleteData={deleteData}
+                    changedata={changedata}
+                    />
+                    );
+                })
+            }
         </div>
-    )  
+    ); 
 }
-export default Todolist;
+
+export default List;

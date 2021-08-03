@@ -1,5 +1,6 @@
 import React from 'react';
 import Item from './item';
+import { nanoid } from 'nanoid';
 
 //list
 const List = ({listData,deleteData,changedata}) =>{
@@ -8,7 +9,7 @@ const List = ({listData,deleteData,changedata}) =>{
         <div>
             {
                 listData.map((item) =>{
-                    const {note,id,completed} = item
+                    const {note,id = nanoid(),completed} = item
                     return (
                     <Item 
                     key={id}

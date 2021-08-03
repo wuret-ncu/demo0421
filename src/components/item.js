@@ -5,19 +5,18 @@ const Item = ({id,note,deleteData,changedata}) =>{
 
     function deleteItem(){
         deleteData(function(prev){
-            return prev.filter(item => item.id !== id);
-            
+            return prev.filter(item => item.id !== id);    
         })
     }
 
-     function changeCompleted(){   
+    function changeCompleted(){   
         changedata(function(prev){  
-            let num =  prev.findIndex(item => item.id === id);
+            let num = prev.findIndex(item => item.id === id);
             let temp = prev
             temp[num].completed = !prev[num].completed
-            //console.log(temp)
-            return [...temp]          
-        }) 
+            //console.log(...temp)
+            return [...temp];   
+        });   
     }
 
     return(

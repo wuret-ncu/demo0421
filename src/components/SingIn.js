@@ -1,6 +1,6 @@
 import React from 'react';
 import './SingIn.css';
-import {BrowserRouter,Switch,Route,Link,Redirect} from "react-router-dom";
+import {Link,Redirect} from "react-router-dom";
 import { useState } from 'react';
 
 

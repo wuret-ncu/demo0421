@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './SingUp.css';
-import {Router,Switch,Route,Link,Redirect} from "react-router-dom";
+import {Link,Redirect} from "react-router-dom";
 
 function Data(props) {
     const [data, setData]=useState("")

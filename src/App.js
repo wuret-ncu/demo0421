@@ -1,31 +1,41 @@
 import React from 'react';
 import './App.css';
-import Nav from './components/nav.js';
-import Additem from './components/additem';
-import List from './components/list.js';
-import { nanoid } from 'nanoid';
-import { useState,useEffect} from 'react';
+import SingIn from './components/SingIn.js'
+import SingUp from './components/SingUp.js'
+import {BrowserRouter ,Switch,Route} from "react-router-dom";
+import ToDoListComponent from './components/ToDoListComponent'
 
-const App = () =>{
-  const [data, setdata] = useState([
-    {id:nanoid(),note:"讀書",completed:false},
-    {id:nanoid(),note:"寫作業",completed:false},
-    {id:nanoid(),note:"畫畫",completed:false}
-  ]);
- 
-  /*
-  useEffect(()=>{
-    console.log(data)
-  }, [data])
-  */
+class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state={
+      singUp:[{name:"暱稱", nocice:""},{name:"帳號",notice:""}, {name:"密碼", notice:"請混合使用 8 個字元以上的英文字母、數字和符號"}],
+      singIn:["帳號", "密碼"],
+      accountdata:[{name:"YT",account:"WULAB",password:"123"}] //預設帳號
+    };
+  }
 
- return(
-    <div className="content">
-      <h2>To Do List</h2>
-      <Additem add={setdata}/>
-      <Nav />
-      <List listData={data} deleteData={setdata} changedata={setdata} />
-    </div>
-  );
+  
+  render(){
+    return (
+      <div>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/">
+              <SingIn name={this.state.singIn} accountdata={this.state.accountdata} />
+            </Route>
+            <Route exact path="/SingUp">
+              <SingUp name={this.state.singUp} accountdata={this.state.accountdata}/>
+            </Route>
+            <Route exact path="/ToDoList">
+              <ToDoListComponent />
+            </Route>
+          </Switch>
+        </BrowserRouter>
+      </div>
+    
+    );
+  }
 }
+
 export default App;

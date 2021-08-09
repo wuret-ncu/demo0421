@@ -10,10 +10,10 @@ const Item = ({id,note,deleteData,changedata}) =>{
     }
 
     function changeCompleted(){   
-        changedata(function(prev){  
+        changedata(function(prev){
             let num = prev.findIndex(item => item.id === id);
             let temp = prev
-            temp[num].completed = !prev[num].completed
+            temp[num].completed = !temp[num].completed
             //console.log(...temp)
             return [...temp];   
         });   

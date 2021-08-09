@@ -1,5 +1,5 @@
 import { nanoid } from 'nanoid';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './additem.css';
 
 function Additem({add}){
@@ -12,7 +12,7 @@ function Additem({add}){
     
     function AddItem(){
         add(function(prevData){
-            //console.log(prevData)
+            //onsole.log(prevData)
             return[
                 ...prevData,
                 {
